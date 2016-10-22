@@ -25,7 +25,7 @@ defaults write $MUNKI_PREFS SoftwareRepoURL https://munki.acme.com/production
 
 # Set client identifier to be UUID
 
-defaults write $MUNKI_PREFS ClientIdentifier $UUID
+defaults write $MUNKI_PREFS ClientIdentifier education-faculty
 
 # Set Basic AuthV
 
