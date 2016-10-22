@@ -17,15 +17,19 @@ LOGDIR="/private/var/log/munki"
 
 # Get UUID for client identifier
 
-UUID=$(system_profiler SPHardwareDataType | awk '/UUID/ { print $3; }')
+#UUID=$(system_profiler SPHardwareDataType | awk '/UUID/ { print $3; }')
 
 # Set Munki Repo
 
 defaults write $MUNKI_PREFS SoftwareRepoURL https://munki.acme.com/production
 
-# Set client identifier to be UUID
+# Set client identifier
 
 defaults write $MUNKI_PREFS ClientIdentifier math-lab
+
+# Set to insstall Apple Updates
+
+defaults write $MUNKI_PREFS InstallAppleSoftwareUpdates 1
 
 # Set Basic AuthV
 
@@ -37,24 +41,24 @@ BASIC_AUTH="base64encodedpassword"
 
 # Log to syslog
 
-defaults write $MUNKI_PREFS LogToSyslog -bool true
+#defaults write $MUNKI_PREFS LogToSyslog -bool true
 
 # Change default log location
 
-[ -d $LOGDIR ] || mkdir -p $LOGDIR 
-touch $LOGDIR/Install.log
-defaults write $MUNKI_PREFS LogFile $LOGDIR/managedsoftwareupdate.log
+#[ -d $LOGDIR ] || mkdir -p $LOGDIR 
+#touch $LOGDIR/Install.log
+#defaults write $MUNKI_PREFS LogFile $LOGDIR/managedsoftwareupdate.log
 
 # Change help URL for Software Centre
 
-defaults write $MUNKI_PREFS HelpURL https://docs.acme.com/OrchardSoftwareCentre
+#defaults write $MUNKI_PREFS HelpURL https://docs.acme.com/OrchardSoftwareCentre
 
 # Add icon to Dock if dockutil available
 
-if [ -f /usr/local/bin/dockutil ]; then
-  /usr/local/bin/dockutil --add "/Applications/Managed Software Center.app" \
-                          --position beginning \
-                          --label "Orchard Software Centre" \
-                          --allhomes \
-                          --no-restart
-fi
+#if [ -f /usr/local/bin/dockutil ]; then
+#  /usr/local/bin/dockutil --add "/Applications/Managed Software Center.app" \
+#                          --position beginning \
+#                          --label "Orchard Software Centre" \
+#                          --allhomes \
+#                          --no-restart
+#fi
