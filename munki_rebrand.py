@@ -80,6 +80,9 @@ appNameLocalized = {    'da'       : 'Managed Software Center',
 make_munki = 'munki/code/tools/make_munki_mpkg.sh'
 
 # Git repo
+# Munki2 git repo
+# git_repo = "https://github.com/munki/munki/tree/Munki2"
+# this gets the latest (currently munki 3)
 git_repo = "https://github.com/munki/munki"
 
 # if we already have a munki subdirectory, we've already downloaded the repo (no need to 
